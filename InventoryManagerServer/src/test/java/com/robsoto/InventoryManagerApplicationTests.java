@@ -1,4 +1,4 @@
-package com.robsoto.InventoryManager;
+package com.robsoto;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
