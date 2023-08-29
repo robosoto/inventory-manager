@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.robsoto</groupId>
-	<artifactId>InventoryManager</artifactId>
+	<artifactId>InventoryManagerServer</artifactId>
 	<version>0.0.1</version>
-	<name>InventoryManager</name>
+	<name>InventoryManagerServer</name>
 	<description>API for Inventory Manager application</description>
 	<properties>
 		<java.version>1.8</java.version>

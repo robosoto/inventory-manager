@@ -1,9 +1,9 @@
-package com.robsoto.InventoryManager.repositories;
+package com.robsoto.repositories;
 
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
-import com.robsoto.InventoryManager.models.Product;
+import com.robsoto.models.Product;
 
 @Repository
 public interface ProductRepository extends CrudRepository<Product, Integer> {

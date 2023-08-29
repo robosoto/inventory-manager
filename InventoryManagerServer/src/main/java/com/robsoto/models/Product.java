@@ -1,6 +1,4 @@
-package com.robsoto.InventoryManager.models;
-
-import java.util.Set;
+package com.robsoto.models;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -10,20 +8,14 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "warehouses")
-public class Warehouse {
+@Table(name = "products")
+public class Product {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "warehouse_id")
+	@Column(name = "product_id")
 	private int id;
 	
 	private String name;
-
-	private int maxCapacity;
-	
-	private Set<Product> products;
-	
-	
 
 }
