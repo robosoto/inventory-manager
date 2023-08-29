@@ -4,7 +4,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/warehouses") // TODO: name plural or singular??
+@RequestMapping("/warehouses")
 public class WarehouseController {
 
 }
