@@ -7,13 +7,15 @@ import com.robsoto.models.Product;
 public interface ProductService {
 	
 	Product findById(int id);
+
+	List<Product> findAllByWarehouseId(int id);
 	
 	List<Product> findAll();
 	
-	Product create(Product product);
+	Product create(Product product) throws Exception;
 	
 	Product update(Product product);
-	
+
 	void delete(int id);
 
 }

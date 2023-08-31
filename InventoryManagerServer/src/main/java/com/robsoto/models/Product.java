@@ -22,8 +22,6 @@ public class Product {
 	
 	private String name;
 	
-	private String description;
-	
 	@ManyToOne
 	@JoinColumn(name = "warehouse_id")
 	private Warehouse warehouse;
@@ -46,14 +44,6 @@ public class Product {
 		this.name = name;
 	}
 
-	public String getDescription() {
-		return description;
-	}
-
-	public void setDescription(String description) {
-		this.description = description;
-	}
-
 	public Warehouse getWarehouse() {
 		return warehouse;
 	}
@@ -64,7 +54,7 @@ public class Product {
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(description, id, name, warehouse);
+		return Objects.hash(id, name, warehouse);
 	}
 
 	@Override
@@ -76,7 +66,7 @@ public class Product {
 		if (getClass() != obj.getClass())
 			return false;
 		Product other = (Product) obj;
-		return Objects.equals(description, other.description) && id == other.id && Objects.equals(name, other.name)
+		return id == other.id && Objects.equals(name, other.name)
 				&& Objects.equals(warehouse, other.warehouse);
 	}
 

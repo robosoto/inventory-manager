@@ -16,6 +16,8 @@ import javax.persistence.Table;
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 @Entity
 @Table(name = "warehouses")
 public class Warehouse {
@@ -29,6 +31,7 @@ public class Warehouse {
 	
 	private int maxCapacity;
 	
+	@JsonBackReference
 	@OneToMany(mappedBy = "warehouse", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
 	@OnDelete(action = OnDeleteAction.CASCADE)
 	private Set<Product> products;
