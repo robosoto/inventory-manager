@@ -17,4 +17,10 @@ export class WarehouseService {
   getWarehouses(): Observable<Warehouse[]> {
     return this.http.get<Warehouse[]>(this.warehouseUrl);
   }
+
+  getWarehouse(id: number): Observable<Warehouse> {
+    const url = `${this.warehouseUrl}/${id}`;
+    return this.http.get<Warehouse>(url);
+  }
+
 }

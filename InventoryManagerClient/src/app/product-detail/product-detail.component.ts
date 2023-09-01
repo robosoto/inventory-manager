@@ -11,7 +11,7 @@ import { Location } from '@angular/common';
 })
 export class ProductDetailComponent {
 
-  @Input() product?: Product
+  product: Product | undefined;
 
   constructor(
     private route: ActivatedRoute,

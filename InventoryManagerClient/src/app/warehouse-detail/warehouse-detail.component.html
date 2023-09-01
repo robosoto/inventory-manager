@@ -1,1 +1,17 @@
-<p>warehouse-detail works!</p>
+<div *ngIf="warehouse">
+    <h2>{{warehouse.name | uppercase}} Description</h2>
+    <div><span>id: </span>{{warehouse.id}}</div>
+    <div>
+        <label for="warehouse-capacity">Current capacity: </label>
+        <span id="warehouse-capacity" placeholder="capacity">{{currentStock}} / {{warehouse.maxCapacity}}</span>
+    </div>
+    <ul class="products">
+        <li *ngFor="let product of products">
+          <a routerLink="/product/{{product.id}}">
+            <span class="badge">{{product.id}}</span>{{product.name}}
+          </a>
+        </li>
+      </ul>
+    <button type="button" (click)="goBack()">Back</button>
+</div>
+  
