@@ -1,0 +1,8 @@
+<ul class="warehouses">
+    <li *ngFor="let warehouse of warehouses">
+      <button type="button">
+          <span class="badge">{{warehouse.id}}</span>
+          <span class="name">Warehouse {{warehouse.name | uppercase}}</span>
+      </button>
+    </li>
+  </ul>

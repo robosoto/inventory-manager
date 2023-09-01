@@ -1,0 +1,10 @@
+<div *ngIf="product">
+
+    <h2>{{product.name | uppercase}} Description</h2>
+    <div><span>id: </span>{{product.id}}</div>
+    <div>
+      <label for="product-description">Description: </label>
+      <span id="product-description" placeholder="description">{{product.description}}</span>
+    </div>
+    <button type="button" (click)="goBack()">Back</button>
+  </div>

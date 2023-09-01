@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { Product } from '../product';
-import { ProductService } from '../product.service';
+import { Product } from '../entities/product';
+import { ProductService } from '../services/product.service';
 
 @Component({
   selector: 'app-products',
@@ -10,7 +10,6 @@ import { ProductService } from '../product.service';
 export class ProductsComponent {
 
   products: Product[] = [];
-  selectedProduct?: Product;
 
   constructor(private productService: ProductService) {}
 
@@ -20,10 +19,6 @@ export class ProductsComponent {
 
   ngOnInit(): void {
     this.getProducts();
-  }
-
-  onSelect(product: Product): void {
-    this.selectedProduct = product;
   }
 
 }
