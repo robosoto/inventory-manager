@@ -114,23 +114,31 @@ button.delete:hover {
 }
 
 nav a {
-    color: #333;
+    color: #EEE;
     text-decoration: none;
-    background-color: #EEE;
+    background-color: #405061;
     margin: .5em;
     padding: .3em 0;
-    height: 1.6em;
+    height: 1.3em;
     border-radius: 4px;
     display: flex;
     position: relative;
     cursor: pointer;
-    margin: 0 0 2em 0;
     list-style-type: none;
     padding: 0;
     width: 6em;
 }
 
 nav a:hover {
-  color: #2c3a41;
-  background-color: #e6e6e6;
+  color: #eeeeee;
+  background-color: #3f3f3f;
+}
+
+.container {
+  width: 100%;
+  display: flexbox;
+}
+
+html {
+  background-color: #b0a9a4;
 }
