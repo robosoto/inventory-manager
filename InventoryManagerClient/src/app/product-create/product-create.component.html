@@ -1,0 +1,19 @@
+<form [formGroup]="productForm">
+    <div class="form-group mb-3">
+      <label for="name">Name: </label>
+      <input type="text" class="form-control" formControlName="name" pInputText id="name" placeholder="Product name" />
+    </div>
+    <div class="form-group mb-3">
+      <label for="description">Description: </label>
+      <input type="text" class="form-control" formControlName="description" pInputText id="description" placeholder="Product description" />
+    </div>
+    <div class="form-group mb-3">
+      <label for="warehouseId">Warehouse ID: </label>
+      <input type="number" min="1" max="5" class="form-control" formControlName="warehouseId" pInputText id="warehouseId" />
+    </div>
+    <button type="submit" [disabled]="!productForm.valid" (click)="handleSubmit($event)">Submit</button>
+</form>
+
+<div *ngIf="submitted">Your form was submitted.</div>
+
+
