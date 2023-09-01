@@ -24,6 +24,8 @@ public class Product {
 	
 	private String name;
 	
+	private String description;
+
 	@ManyToOne
 	@JoinColumn(name = "warehouse_id")
 	@JsonBackReference
@@ -55,9 +57,17 @@ public class Product {
 		this.warehouse = warehouse;
 	}
 
+	public String getDescription() {
+		return this.description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
 	@Override
 	public int hashCode() {
-		return Objects.hash(id, name, warehouse);
+		return Objects.hash(description, id, name, warehouse);
 	}
 
 	@Override
@@ -69,7 +79,7 @@ public class Product {
 		if (getClass() != obj.getClass())
 			return false;
 		Product other = (Product) obj;
-		return id == other.id && Objects.equals(name, other.name)
+		return Objects.equals(description, other.description) && id == other.id && Objects.equals(name, other.name)
 				&& Objects.equals(warehouse, other.warehouse);
 	}
 
