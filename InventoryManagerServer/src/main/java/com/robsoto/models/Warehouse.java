@@ -1,7 +1,7 @@
 package com.robsoto.models;
 
 import java.util.Objects;
-import java.util.Set;
+import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -16,7 +16,7 @@ import javax.persistence.Table;
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity
 @Table(name = "warehouses")
@@ -31,10 +31,10 @@ public class Warehouse {
 	
 	private int maxCapacity;
 	
-	@JsonBackReference
 	@OneToMany(mappedBy = "warehouse", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
 	@OnDelete(action = OnDeleteAction.CASCADE)
-	private Set<Product> products;
+	@JsonManagedReference
+	private List<Product> products;
 	
 	public Warehouse() {}
 	
@@ -62,11 +62,11 @@ public class Warehouse {
 		this.maxCapacity = maxCapacity;
 	}
 
-	public Set<Product> getProducts() {
+	public List<Product> getProducts() {
 		return products;
 	}
 
-	public void setProducts(Set<Product> products) {
+	public void setProducts(List<Product> products) {
 		this.products = products;
 	}
 

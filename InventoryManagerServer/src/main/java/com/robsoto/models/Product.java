@@ -11,6 +11,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 @Entity
 @Table(name = "products")
 public class Product {
@@ -24,6 +26,7 @@ public class Product {
 	
 	@ManyToOne
 	@JoinColumn(name = "warehouse_id")
+	@JsonBackReference
 	private Warehouse warehouse;
 	
 	public Product() {}
