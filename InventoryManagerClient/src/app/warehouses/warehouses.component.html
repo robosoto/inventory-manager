@@ -1,4 +1,5 @@
 <ul class="warehouses">
+    <h2>Warehouses</h2>
     <li *ngFor="let warehouse of warehouses">
       <a routerLink="/warehouse/{{warehouse.id}}">
         <span class="badge">{{warehouse.id}}</span>{{warehouse.name | uppercase}}

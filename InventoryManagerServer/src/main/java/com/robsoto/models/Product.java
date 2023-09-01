@@ -33,6 +33,13 @@ public class Product {
 	
 	public Product() {}
 
+	public Product(String name, String description, Warehouse warehouse) {
+		super();
+		this.name = name;
+		this.description = description;
+		this.warehouse = warehouse;
+	}
+
 	public int getId() {
 		return id;
 	}

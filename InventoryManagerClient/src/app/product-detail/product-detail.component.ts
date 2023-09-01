@@ -28,6 +28,10 @@ export class ProductDetailComponent {
     this.productService.getProduct(id).subscribe(product => this.product = product);
   }
 
+  // save(): void {
+  //   this.productService.updateProduct(product.id);
+  // }
+
   goBack(): void {
     this.location.back();
   }

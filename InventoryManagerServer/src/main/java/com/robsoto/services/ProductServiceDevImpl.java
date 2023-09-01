@@ -5,6 +5,7 @@ import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 
+import com.robsoto.dtos.ProductDto;
 import com.robsoto.models.Product;
 import com.robsoto.models.Warehouse;
 import com.robsoto.repositories.ProductRepository;
@@ -19,6 +20,17 @@ public class ProductServiceDevImpl implements ProductService {
 	public ProductServiceDevImpl(ProductRepository productRepo, WarehouseRepository warehouseRepo) {
 		this.productRepo = productRepo;
 	}
+	
+	public Product dtoToProduct(ProductDto productDto) {
+		int warehouseId = productDto.getWarehouseId();
+		Optional<Warehouse> warehouse = warehouseRepo.findById(warehouseId);
+		
+//		if (!warehouse.isPresent()) {
+//			return null;
+//		}
+		
+		return new Product(productDto.getName(), productDto.getDescription(), warehouse.get());
+	}
 
 	@Override
 	public Product findById(int id) {
@@ -32,23 +44,21 @@ public class ProductServiceDevImpl implements ProductService {
 	}
 
 	@Override
-	public Product create(Product product) throws Exception {
-		int warehouseId = product.getWarehouse().getId();
-		Optional<Warehouse> warehouse = warehouseRepo.findById(warehouseId);
+	public Product create(ProductDto productDto) throws Exception {
+		Product product = dtoToProduct(productDto);
+		Warehouse warehouse = product.getWarehouse();
 		
-		if (!warehouse.isPresent()) {
-			throw new Exception(); // TODO: create custom exception? look up ExceptionHandler for the controller
-		}
-		
-		if (warehouse.get().getProducts().size() >= warehouse.get().getMaxCapacity()) {
-			throw new Exception(); // TODO: custom exception? or just return null?
+		if (warehouse.getProducts().size() >= warehouse.getMaxCapacity()) {
+			throw new Exception();
 		}
 		
 		return productRepo.save(product);
 	}
 	
 	@Override
-	public Product update(Product product) {
+	public Product update(ProductDto productDto) {
+		Product product = dtoToProduct(productDto);
+		
 		return productRepo.save(product);
 	}
 

@@ -2,6 +2,7 @@ package com.robsoto.services;
 
 import java.util.List;
 
+import com.robsoto.dtos.ProductDto;
 import com.robsoto.models.Product;
 
 public interface ProductService {
@@ -12,9 +13,9 @@ public interface ProductService {
 	
 	List<Product> findAll();
 	
-	Product create(Product product) throws Exception;
+	Product create(ProductDto productDto) throws Exception;
 	
-	Product update(Product product);
+	Product update(ProductDto productDto);
 
 	void delete(int id);
 

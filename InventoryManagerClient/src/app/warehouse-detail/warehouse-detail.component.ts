@@ -20,6 +20,7 @@ export class WarehouseDetailComponent {
   constructor(
     private route: ActivatedRoute,
     private warehouseService: WarehouseService,
+    private productService: ProductService,
     private location: Location
   ) {}
 
@@ -34,6 +35,13 @@ export class WarehouseDetailComponent {
       this.currentStock = warehouse.products.length;
       this.products = this.warehouse ? this.warehouse.products : [];
     });
+  }
+
+  delete(product: Product): void {
+    if(confirm("Proceed with deletion of " + product.name + " (id: " + product.id + ")?")) {
+      this.products = this.products.filter(p => p !== product);
+      this.productService.delete(product.id).subscribe();
+    }
   }
 
   goBack(): void {
